@@ -1,9 +1,7 @@
 package ru.netology;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +26,7 @@ public class CardApplicationPositiveTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.get("http://localhost:9999");
+        driver.get("http://localhost:7777");
     }
 
     @AfterEach
@@ -40,7 +38,7 @@ public class CardApplicationPositiveTest {
     @Test
     public void whenAllRightTest() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Сергеев-Петров Александр-Андрей");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+7 (977) 685 01 00");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79779552985");
         driver.findElement(By.cssSelector("[data-test-id=agreement] input")).click();
         driver.findElement(By.cssSelector("[data-test-id=button.button] input")).click();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
